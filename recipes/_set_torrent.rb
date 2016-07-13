@@ -7,6 +7,7 @@ directory "/home/#{node[:raspberry_base][:user]}/.config/qBittorrent" do
   group node[:raspberry_base][:user]
   mode '0751'
   action :create
+  recursive true
 end
 
 template "/home/#{node[:raspberry_base][:user]}/.config/qBittorrent/qBittorrent.conf" do

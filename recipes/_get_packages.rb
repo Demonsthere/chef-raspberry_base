@@ -5,5 +5,6 @@ end
 node[:raspberry_base][:packages].each do |pkg|
   package pkg do
     action :upgrade
+    ignore_failure true
   end
 end
