@@ -1,0 +1,19 @@
+---
+driver:
+  name: vagrant
+  customize:
+    nictype1: 'virtio'
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: debian8_local
+    driver:
+        box: debian8_local
+
+suites:
+  - name: default
+    run_list:
+      - recipe[raspberry_base::default]
+    attributes:
