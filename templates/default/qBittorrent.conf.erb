@@ -12,12 +12,12 @@ General\SystrayEnabled=true
 Advanced\TrayIconStyle=1
 General\CloseToTray=false
 General\MinimizeToTray=false
-General\StartMinimized=true
-General\NoSplashScreen=false
+General\StartMinimized=<%= node[:raspberry_base][:torrent][:auto_start] %>
+General\NoSplashScreen=true
 General\PreventFromSuspend=false
-Downloads\SavePath=/media/pi/Data/torrents
+Downloads\SavePath=<%= node[:raspberry_base][:torrent][:file_dir] %>
 Downloads\TempPathEnabled=false
-Downloads\TempPath=/home/pi/Downloads/temp
+Downloads\TempPath=<%= node[:raspberry_base][:torrent][:file_dir] %>
 Downloads\AppendLabel=false
 Downloads\UseIncompleteExtension=false
 Downloads\PreAllocation=false
@@ -36,7 +36,7 @@ MailNotification\password=
 Downloads\DblClOnTorDl=0
 Downloads\DblClOnTorFn=1
 Connection\PortRangeMin=6881
-General\UseRandomPort=false
+General\UseRandomPort=true
 Connection\UPnP=true
 Connection\GlobalDLLimit=-1
 Connection\GlobalUPLimit=-1
@@ -75,7 +75,7 @@ Queueing\MaxActiveDownloads=3
 Queueing\MaxActiveUploads=3
 Queueing\MaxActiveTorrents=5
 Queueing\IgnoreSlowTorrents=false
-WebUI\Enabled=true
+WebUI\Enabled=<%= node[:raspberry_base][:torrent][:web_ui] %>
 Downloads\DiskWriteCacheSize=0
 Downloads\DiskWriteCacheTTL=60
 Advanced\osCache=true
@@ -102,9 +102,9 @@ Advanced\AnnounceToAllTrackers=false
 State\size=@Size(779 591)
 State\pos=@Point(122 70)
 State\hSplitterSizes=129, 622
-WebUI\Port=8080
+WebUI\Port=<%= node[:raspberry_base][:torrent][:web_port] %>
 WebUI\UseUPnP=true
-WebUI\HTTPS\Enabled=false
+WebUI\HTTPS\Enabled=true
 WebUI\Username=demon
 WebUI\Password_ha1=@ByteArray(7f75b654141f0fff0932b9abcd0dae05)
 WebUI\LocalHostAuth=true
@@ -119,7 +119,7 @@ IPFilter\File=
 Accepted=true
 
 [TorrentAdditionDlg]
-save_path_history=/home/pi/Downloads, /media/pi/Data/torrents
+save_path_history=<%= node[:raspberry_base][:torrent][:file_dir] %>
 
 [AddNewTorrentDialog]
 y=174
