@@ -8,7 +8,7 @@ default[:raspberry_base][:config][:swap_dir] = '/swap'
 default[:raspberry_base][:config][:swap_size] = 512
 # general settings
 default[:raspberry_base][:user] = 'vagrant'
-default[:raspberry_base][:packages] = %w(htop tightvncserver screen usbmount gnash)
+default[:raspberry_base][:packages] = %w(htop tightvncserver screen usbmount gnash git)
 
 # torrent settings
 default[:raspberry_base][:torrent][:foo] = 'bar'
