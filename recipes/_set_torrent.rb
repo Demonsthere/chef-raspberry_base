@@ -1,4 +1,4 @@
-package 'qbittorrent' do
+package 'qbittorrent-nox' do
   action :install
 end
 
@@ -15,4 +15,17 @@ template "/home/#{node[:raspberry_base][:user]}/.config/qBittorrent/qBittorrent.
   owner 'root'
   group 'root'
   mode '0644'
+end
+
+template '/etc/systemd/system/qbittorrent.service' do
+  source 'qbittorrent.service.erb'
+  owner 'root'
+  group 'root'
+  mode '0644'
+  notifies :restart, 'service[qbittorrent]', :delayed
+end
+
+service 'qbittorrent' do
+  supports status: true, restart: true, reload: true
+  action [:start, :enable]
 end
