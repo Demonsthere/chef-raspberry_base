@@ -17,12 +17,22 @@ template "/home/#{node[:raspberry_base][:user]}/.config/qBittorrent/qBittorrent.
   mode '0644'
 end
 
-template '/etc/systemd/system/qbittorrent.service' do
-  source 'qbittorrent.service.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
-  notifies :restart, 'service[qbittorrent]', :delayed
+if node['platform_version'] >= '8.0'
+  template '/etc/systemd/system/qbittorrent.service' do
+    source 'qbittorrent.service.erb'
+    owner 'root'
+    group 'root'
+    mode '0644'
+    notifies :restart, 'service[qbittorrent]', :delayed
+  end
+else
+  template '/etc/init.d/qbittorrent' do
+    source 'qbittorrent.init.erb'
+    owner 'root'
+    group 'root'
+    mode '0755'
+    notifies :restart, 'service[qbittorrent]', :delayed
+  end
 end
 
 service 'qbittorrent' do
