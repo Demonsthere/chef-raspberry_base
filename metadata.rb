@@ -4,6 +4,6 @@ maintainer_email 'jakub.blaszczyk@sap.com'
 license 'all_rights'
 description 'Installs/Configures chef-raspberry_base'
 long_description 'Installs/Configures chef-raspberry_base'
-version '0.1.5'
+version '0.1.6'
 
 depends 'apt', '= 3.0.0'

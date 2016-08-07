@@ -8,3 +8,12 @@ node[:raspberry_base][:packages].each do |pkg|
     ignore_failure true
   end
 end
+
+cookbook_file 'xscreensaver settings' do
+  action :create
+  path "/home/#{node[:raspberry_base][:user]}/.xscreensaver"
+  source 'xscreensaver'
+  owner node[:raspberry_base][:user]
+  group node[:raspberry_base][:user]
+  mode '0644'
+end

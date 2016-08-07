@@ -7,7 +7,8 @@ describe 'raspberry_base::default' do
     skip 'Replace this with meaningful tests'
   end
 
-  config_files = %w(/boot/cmdline.txt /boot/config.txt /etc/dphys-swapfile /etc/systemd/system/qbittorrent.service)
+  user = 'vagrant'
+  config_files = %W(/boot/cmdline.txt /boot/config.txt /etc/dphys-swapfile /etc/systemd/system/qbittorrent.service /home/#{user}/.xscreensaver)
   services = %w(dphys-swapfile qbittorrent)
 
   config_files.each do |cfg|
