@@ -16,6 +16,9 @@ Style/EndOfLine:
 Style/FileName:
   Enabled: false
 
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: false
+
 AllCops:
   Exclude:
     - Vagrantfile
