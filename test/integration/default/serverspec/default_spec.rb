@@ -24,4 +24,8 @@ describe 'raspberry_base::default' do
       it { should be_running }
     end
   end
+
+  describe cron do
+    it { should have_entry('00 22 * * * /usr/bin/going_to_sleep.sh').with_user('root') }
+  end
 end

@@ -16,3 +16,6 @@ default[:raspberry_base][:torrent][:auto_start] = true
 default[:raspberry_base][:torrent][:file_dir] = '/media/pi/Data/torrents'
 default[:raspberry_base][:torrent][:web_ui] = true
 default[:raspberry_base][:torrent][:web_port] = 8080
+
+# auto shutdown
+default[:raspberry_base][:auto_shutdown] = true
